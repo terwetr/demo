@@ -48,12 +48,28 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>flyway-dev</id>
+			<properties>
+				<flyway.user>OLYMPUS</flyway.user>
+				<flyway.password>admin</flyway.password>
+				<flyway.url>jdbc:oracle:thin:@//localhost:1521/xe</flyway.url>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>4.2.0</version>
 			</plugin>
 		</plugins>
 	</build>
